@@ -8,31 +8,39 @@
     <title>Quizz</title>
 </head>
 <body>
-    <label for="q1">What is 1 + 1?</label>
-    <select name="q" id="q1">
-        <option>Choose an answer</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-    </select>
-
-    <label for="q2">What is 2 + 2?</label>
-    <select name="q" id="q2">
-        <option>Choose an answer</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-    </select>
-
-    <label for="q3">What is 1 + 2?</label>
-    <select name="q" id="q3">
-        <option>Choose an answer</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-    </select>
-
+    <div class="question">
+        <label for="q1">What is 1 + 1?</label>
+        <select name="q" id="q1">
+            <option>Choose an answer</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>    
+    </div>
+    
+    <div class="question">
+        <label for="q2">What is 2 + 2?</label>
+        <select name="q" id="q2">
+            <option>Choose an answer</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+    </div>
+    
+    <div class="question">
+        <label for="q3">What is 1 + 2?</label>
+        <select name="q" id="q3">
+            <option>Choose an answer</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+    </div>
+    
     <button id="submitAnswers">Submit answers</button>
+
+    <div class="result"></div>
 
     <script src="scripts.js"></script>
 </body>

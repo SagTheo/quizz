@@ -1,11 +1,13 @@
 const selectEls = document.getElementsByName('q')
 const answerButton = document.querySelector('#submitAnswers')
+const result = document.querySelector('.result')
 const userAnswers = {}
 const answers = {
     'q1': '2',
     'q2': '4',
     'q3': '3'
 }
+let success = true
 
 selectEls.forEach(el => {
     userAnswers[el.id] = null
@@ -16,13 +18,17 @@ selectEls.forEach(el => {
 })
 
 answerButton.addEventListener('click', () => {
+    success = true
+    
     for (let answer in answers) {
         if (userAnswers[answer] !== answers[answer]) {
-            console.log('mistake found')
-
-            return
+            success = false
         }
     }
 
-    console.log('no mistakes found')
+    if (success) {
+        result.innerHTML = 'No mistakes'
+    } else {
+        result.innerHTML = 'Mistakes found'
+    }
 })
