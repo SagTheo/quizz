@@ -7,7 +7,7 @@ const answers = {
     'q2': '4',
     'q3': '3'
 }
-let success = true
+let mistakesCounter = 0
 
 selectEls.forEach(el => {
     userAnswers[el.id] = null
@@ -18,17 +18,19 @@ selectEls.forEach(el => {
 })
 
 answerButton.addEventListener('click', () => {
-    success = true
+    mistakesCounter = 0
     
     for (let answer in answers) {
+        const errMessage = document.querySelector(`.result_${answer}`)
+
         if (userAnswers[answer] !== answers[answer]) {
-            success = false
+            errMessage.innerHTML = 'Wrong'
+
+            mistakesCounter++
+        } else {
+            errMessage.innerHTML = ''
         }
     }
 
-    if (success) {
-        result.innerHTML = 'No mistakes'
-    } else {
-        result.innerHTML = 'Mistakes found'
-    }
+    result.innerHTML = mistakesCounter
 })
