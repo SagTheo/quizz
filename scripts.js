@@ -1,5 +1,7 @@
 const selectEls = document.getElementsByName('q')
-const answerButton = document.querySelector('#submitAnswers')
+const radioQuizz = document.getElementsByClassName('radioQuizz')
+const answerButtonQ1 = document.querySelector('#submitAnswersQ1')
+const answerButtonQ2 = document.querySelector('#submitAnswersQ2')
 const result = document.querySelector('.result')
 const userAnswers = {}
 const answers = {
@@ -16,7 +18,7 @@ selectEls.forEach(el => {
     })
 })
 
-answerButton.addEventListener('click', () => {
+answerButtonQ1.addEventListener('click', () => {
     mistakesCounter = 0
     
     for (let answer in answers) {
@@ -35,5 +37,21 @@ answerButton.addEventListener('click', () => {
         result.innerHTML = `You made ${mistakesCounter} mistakes`
     } else {
         result.innerHTML = `You made ${mistakesCounter} mistake`
+    }
+})
+
+
+// Quizz v2
+answerButtonQ2.addEventListener('click', () => {
+    const arrAnswers = Array.from(radioQuizz)
+
+    for (let i = 0; i < arrAnswers.length; i++) {
+        const arrInputs = arrAnswers[0].elements
+
+        for (let j = 0; j < arrInputs.length; j++) {
+            if (arrInputs[j].checked) {
+                console.log(arrInputs[j].defaultValue)
+            }
+        }
     }
 })
