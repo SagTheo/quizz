@@ -6,7 +6,11 @@ const answerButtonQ2 = document.querySelector('#submitAnswersQ2')
 const result = document.querySelector('.result')
 const resultV2 = document.querySelector('.resultV2')
 const errMessages = Array.from(document.getElementsByClassName('err'))
-const userAnswers = {}
+const userAnswers = {
+    'q1': 'title',
+    'q2': 'title',
+    'q3': 'title'
+}
 const userAnswersV2 = {}
 const answers = {
     'q1': '2',
@@ -33,15 +37,15 @@ answerButtonQ1.addEventListener('click', () => {
     mistakesCounter = 0
     let answersCounter = 0
 
-    errMessages.forEach(el => {
-        el.innerHTML = ''
-    })
-
     for (let answer in answers) {
         const errMessage = document.querySelector(`.result_${answer}`)
 
         if (userAnswers[answer]) {
             if (userAnswers[answer] === 'title') {
+                errMessages.forEach(el => {
+                    el.innerHTML = ''
+                })
+
                 result.innerHTML = 'You must answer all the questions'
     
                 return 
