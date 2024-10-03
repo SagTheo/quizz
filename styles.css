@@ -31,3 +31,7 @@ body {
 .radioQuizz {
     width: fit-content;
 }
+
+.wrong {
+    border-color: red;
+}
